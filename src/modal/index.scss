@@ -1,0 +1,92 @@
+@use '../styles/mixins' as *;
+@use '../styles/variables' as *;
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $cor-bg-preto-shadow;
+
+  &__logo img{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: -5vh;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  &__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: auto;
+    background-color: $cor-bg-amarela;
+    border-radius: 15px;
+    padding: 1.5rem;
+
+    h1{
+      margin-bottom: 1rem;
+    }
+
+    p{
+      font-size: 18px;
+      height: auto;
+      min-height: 100px;
+      margin: .5rem
+    }
+
+    .btnmodal{
+      @include btn-model;
+      background-color: $cor-bg-amarela-claro;
+      font-size: 20px;
+      padding: .6rem 2rem;
+    }
+
+    svg{
+      margin-top: 1rem;
+      color: $cor-bg-amarela-escuro;
+      cursor: pointer;
+    }
+  }
+}
+
+@include viewport(md){
+  .modal__content{
+    width: 70vw;
+  }
+}
+
+@include viewport(smd){
+  .modal__content{
+    width: 80vw;
+
+    p{
+      font-size: 16px;
+    }
+  }
+}
+
+@include viewport(xs){
+  .modal__content{
+    width: 90vw;
+
+    .btnmodal{
+      @include btn-model;
+      font-size: 16px;
+      padding: .6rem 1rem;
+    }
+  }
+}

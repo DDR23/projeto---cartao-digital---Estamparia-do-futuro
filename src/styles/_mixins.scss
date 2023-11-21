@@ -1,0 +1,51 @@
+@use './variables' as *;
+
+@mixin flex-position(
+  $display,
+  $flex-direction,
+  $margin,
+  $justify-content,
+  $text-align,
+  $align-items)
+  {
+    display: $display;
+    flex-direction: $flex-direction;
+    margin: $margin;
+    justify-content: $justify-content;
+    text-align: $text-align;
+    align-items: $align-items;
+}
+
+@mixin btn-model{
+  padding: .6rem 4rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: $cor-bg-amarela-medio;
+  transition-duration: .2s;
+  border: 1px solid $cor-bg-amarela-medio;
+  margin: .5rem 1.5rem;
+  font-size: 26px;
+
+  &:hover{
+    transform: translateY(-.1rem);
+    transition-duration: .2s;
+    background-color: $cor-bg-amarela-medio;
+  }
+}
+
+@mixin viewport($breakpoints){
+  $devices:(
+      xs: 320px,
+      sm: 480px,
+      smd: 600px,
+      md: 768px,
+      lg: 992px,
+      xl: 1200px
+  );
+  $breakpoint: map-get($devices, $breakpoints);
+  
+  @media(max-width: $breakpoint){
+      @content
+  }
+}
